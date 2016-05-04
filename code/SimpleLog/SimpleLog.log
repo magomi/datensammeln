@@ -1,0 +1,8 @@
+2016-05-03 09:30:38 INFO  Bob:18 - a [person] was instantiated
+2016-05-03 09:30:38 INFO  Bob:14 - [alice] was instantiated
+2016-05-03 09:30:38 INFO  Bob:18 - a [person] was instantiated
+2016-05-03 09:30:38 INFO  Bob:14 - [bob] was instantiated
+2016-05-04 18:46:45 INFO  Bob:18 - a [person] was instantiated
+2016-05-04 18:46:45 INFO  Alice:15 - [alice] was instantiated
+2016-05-04 18:46:45 INFO  Bob:18 - a [person] was instantiated
+2016-05-04 18:46:45 INFO  Bob:14 - [bob] was instantiated
