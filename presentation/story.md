@@ -1,4 +1,9 @@
-# Warum Logging
+# Warum sammelen wir Daten
+
+* Zustand von Anwendungen überwachen
+* Abläufe nachvollziehen
+* Entwickler unterstützen
+* Performance Messen
 
 Nachvollziehen
 
