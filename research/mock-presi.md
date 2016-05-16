@@ -21,7 +21,7 @@ _was fehlt:_
 Für wen loggen wir?
 * Entwickler?
 * Betrieb?
-* Software/Analysetools? _(Warnung bei bestimenten Ereignissen)_
+* Software/Analysetools? _(Warnung bei bestimmmten Ereignissen)_
 
 ++++++++++++++++++++++++
 ### Logging Frameworks
@@ -43,11 +43,11 @@ _wir leben nicht mehr in den 80ern_
 ++++++++++++++++++++++++
 # Grundlegene Konzepte
 
+* Log Level
 * Logger
 * Appender
 * Formatter / Layout
 * Encoder
-* Log Level
 
 ++++++++++++++++++++++++
 ## Log level
@@ -79,6 +79,10 @@ _wir leben nicht mehr in den 80ern_
   * Mail
   * SNMP
   * ....
+
+++++++++++++++++++++++++
+
+_kurze Beispiele für logs im code und formatierte Ausgabe?_
 
 ++++++++++++++++++++++++
 ### Asynchrone Appender (logback)
@@ -134,7 +138,23 @@ _ Argumente von http://logback.qos.ch/reasonsToSwitch.html (auszugsweise) übern
 * Auswahl per Build-Tool
 * Ersetzen von JUL oder JCL durch SLF4J - Stubbs
 
-_einfügen von maven code?_
+```XML
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <version>${spring.version}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>jcl-over-slf4j</artifactId>
+</dependency>
+```
 
 ++++++++++++++++++++++++
 
@@ -159,3 +179,22 @@ if(logger.isDebug()) {
     logger.debug("found customer:" + customer);
 }
 ```
+
+++++++++++++++++++++++++
+
+* Was loggen wir?
+* Auf welchem Level?
+* Abstimmen mit Betrieb, NFR?
+* An Schnittstellen, was ging rein / raus?
+* Zeiten für externe Aufrufe
+* Exceptions: dort wo behandelt wird.
+* Vorgaben zu Beginn eines Projektes festhalten
+
+++++++++++++++++++++++++
+## Formating log Einträge
+
+* durch das Frameworks
+* Auswirkungen auf Performance beachten:
+  * PatternLayout kein C , F, L, M vermeiden, da Aufwendig in Bestimmung
+* Trennzeichen zwischen Teilen des Logs verwenden für einfacheres parsen
+* gleiches Format auf allen Umgebungen
