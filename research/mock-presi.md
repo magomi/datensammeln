@@ -76,12 +76,86 @@ _wir leben nicht mehr in den 80ern_
   * console
   * JMS
   * Unix Syslog
+  * Mail
+  * SNMP
   * ....
 
 ++++++++++++++++++++++++
-## Encoder _nur logback
+### Asynchrone Appender (logback)
 
-* 
+* Entkoplung Sender <--> Empfänger
+* Arbeiten in der Regel mit einer DQueue
+* Datenverlusst wenn Queue voll (80%)
+  _studie zeigt das DQueues entweder voll oder leer sind_
 
 ++++++++++++++++++++++++
+### Asynchrone Logger (Log4J)
+
+_bild von http://logging.apache.org/log4j/2.x/manual/async.html#Performance einsetzen_
+
+
+* nutzen LMAX Disruptors _ http://lmax-exchange.github.io/disruptor/ _
+* kein Datenverlust
+
+++++++++++++++++++++++++
+## Encoder (logback))
+
+* z.B. für JSON Output
+
+_eventuell weglassen_
+
+++++++++++++++++++++++++
+## MDC
+
+Mapped diagnostic Context
+* Anreicherung des Logs mit MetaInformationen
+* Speichern von Key / Values _z.B. session id, user id_
+* automatischen Einfügen in die Logs per Konfiguration
+
+_code?_
+
+++++++++++++++++++++++++
+## Wahl eines Logging Frameworks
+
+* JUL und JCL nicht mehr aktuell und keine Weiterentwicklung.
+* einzigster Vorteil JUL: keine zusätzliche Abhängigkeit
+* _research warum von JUL and JUL abgeraten wird_
+* Entscheidung zwischen Log4J und SLF4J/Logback
+_ Argumente von http://logback.qos.ch/reasonsToSwitch.html (auszugsweise) übernehmen_
+* SLF4J: config besser lesbar _beispiel einfügen?_
+* Logack: SiftingAppender: separate Appender je nach Runtime Attribute _z.B. per user_
+
+++++++++++++++++++++++++
+### Konsolidierung Logging Framework
+
+* Verwendung der SLF4J API im eigenen code
+* Loggingframework wird zur Laufzeit durch Classpath bestimmt
+* Fremdbibliotheken haben häufig feste Abhängigkeit zu bestimmmten Framework
+* Auswahl per Build-Tool
+* Ersetzen von JUL oder JCL durch SLF4J - Stubbs
+
+_einfügen von maven code?_
+
+++++++++++++++++++++++++
+
 # Performance
+
+* Kosten für Aufruf von .debug(), .info(),..:
+  * API call
+  * prüfen ob log level ausreichend
+-> kleiner Overhead, wenn nicht Stringkonkatenation verwendet wird
+
+```Java
+logger.debug("found customer: " + customer);
+```
+
+```Java
+logger.debug("found customer: {}", customer);
+```
+
+-> Prüfung im code selten sinnvoll
+```Java
+if(logger.isDebug()) {
+    logger.debug("found customer:" + customer);
+}
+```
