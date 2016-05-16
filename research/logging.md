@@ -13,6 +13,18 @@
 * Log4J
 * SLF4J
 * Logback
+* Java Util Logging
+* Java Commons Logging
+
+# In other Languages
+* C#: Log4Net, Smartinspect _(comercial)_
+* Python: lib/logging _(very similar to log4j)_
+* JavaScript:
+    * Log4JavaScript
+    * Winston
+    * Bunyan _JSon streaming_
+* Groovy: use/import Log4j oder SLF4J
+* Clojure: backed by Java logging Frameworks
 
 ## logback vs. log4j
 
