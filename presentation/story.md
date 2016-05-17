@@ -1,70 +1,28 @@
-# Warum sammelen wir Daten
+# Einstieg
 
-* Zustand von Anwendungen überwachen
-* Abläufe nachvollziehen
-* Entwickler unterstützen
-* Performance Messen
+* System.out -> und fertig
+* Warum dann doch nicht ausreichend
+* Also doch weiter ausholen
+    * Warum sammeln wir Daten?
+    * Für wen sammeln wir Daten?
+    * Was wollen wir erreichen?
 
-Nachvollziehen
+# Aktueller Stand
 
-* Ablauf
-* Zustände
-    * Regel
-    * Ausnahmen
-    * Umgebung
-* Ereignisse protokollieren
-* Prognosen
+* log4j und seine Freunde
+* Konzepte
+* Beispiele
 
-# Übliche Herangehensweise
+# Was bereitet uns Kopfschmerzen?
 
-* Java bietet (glücklicherweise) passende Frameworks für einheitliches Logging
-    * Anwendungen schreiben in Kanal
-    * Ausgabe nach zu definierenden Regeln
-* Sonderwege
-    * 12-Factor-App -> System.out.println(...)
+* Verteilte Systeme
+* Datenmengen
+* Ungewissheit, welche Daten wir brauchen
 
-* Information in Datei schreiben
+# Logging weitergedacht
 
-* Logviewer
-* Textanalyse
-
-
-# Problem
-
-     Datenquelle -> Transformation -> Ablage
-    \------------------\ /-----------------/ 
-                        V
-                      BRUCH
-                        A
-    /------------------/ \-----------------\
-                  Datenauswertung
-
-Auswertung nicht 
-
-* automatisiert
-* standardisiert
-
-# Herausforderungen
-
-* Daten schnell schreiben
-* Verwalten großer Datenmenge
-* performanter Zugriff
-* 
-
-# Lösungsskizze
-
-* Blick über den Tellerrand
-    * syslog
-    * zentrale Log-Dienste
-    * Datenbanken
-    * Verteilung von Daten/Sharding
-
-## Beschreibung und Demo
-
-* kaum etwas muss neu implementiert werden
-* Logging-Vorgehen
-    * Generieren
-    * Aufbereiten
-    * Speichern
-    * Analysieren
+* Strukturierung der Daten
+* Zentrale Ablage
+* Aggregation von Daten
+* Performanter Zugriff
 
