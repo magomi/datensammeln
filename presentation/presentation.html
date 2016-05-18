@@ -1,9 +1,19 @@
 <html>
     <head>
         <title>Datensammeln ohne Reue</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
         <link rel="stylesheet" href="reveal.js/css/reveal.css">
         <link rel="stylesheet" href="reveal.js/css/theme/white.css">
-        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="reveal.js/lib/css/tomorrow.css">
+        <style>
+        .reveal pre {
+          width: 100%;
+        }
+        </style>
    </head>
     <body>
         <div class="reveal">
@@ -22,7 +32,7 @@
 
 <!-- ------ Einstieg  ------ -->
 <section>
-   <pre><code data-trim data-noescape>System.out.println("Customer " + 637208 + " not found");</code></pre>
+   <pre><code class="hljava" data-trim data-noescape>System.out.println("Customer " + 637208 + " not found");</code></pre>
 </section>
 <section>
     <h1>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h1>
@@ -30,7 +40,7 @@
     <h2>Fragen? Anmerkungen?</h2>
 </section>
 <section>
-    <pre><code class="java" data-trim data-noescape>System.out.println("Customer " + 637208 + " not found");</code></pre>
+    <pre><code class="hljava" data-trim data-noescape>System.out.println("Customer " + 637208 + " not found");</code></pre>
     <h3>&nbsp;</h3>
     <h3>Reicht das wirklich?</h3>
     <aside class="notes">
@@ -189,18 +199,19 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author Grunert, Marco <marco@grnrt.org>
- */
 public class LogDemo {
-    static final Logger logger = LoggerFactory.getLogger(LogDemo.class);
+    static final Logger logger =
+                LoggerFactory.getLogger(LogDemo.class);
 
     public static void main(String[] args) {
-        logger.info("application [] started")
+        logger.info("application {} started", args[0]);
         Alice alice = new Alice(23, "Naive Project Manager");
         Bob bob = new Bob(42, "Grumpy IT Guy");
     }
 }
+    </code></pre>
+    <pre><code class="hljava" data-trim data-noescape>
+      21:22:02.458 - [Main] - INFO - c.t.j.LogDemo - application Demo started
     </code></pre>
 </section>
 <section>
@@ -283,21 +294,21 @@ public class LogDemo {
     </section>
     <section>
         <pre><code class="hlxml" data-trim >
-          <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-              </exclusion>
-            </exclusions>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-          </dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>${spring.version}</version>
+    <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+</dependency>
         </code></pre>
     </section>
 </section>
