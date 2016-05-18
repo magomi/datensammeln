@@ -312,7 +312,35 @@ public class LogDemo {
         </code></pre>
     </section>
 </section>
-
+<section>
+  <h2>Best Practice</h2>
+  <p>&nbsp;</p>
+  <ul>
+      <li class="fragment">Was loggen wir?</li>
+      <li class="fragment">Auf welchem Level</li>
+      <li class="fragment">Abstimmung mit Betrieb, NFR?</li>
+      <li class="fragment">Systemgrenzen</li>
+      <li class="fragment">Aufrufzeiten</li>
+      <li class="fragment">Exceptions, nur einmalig</li>
+      <li class="fragment">Vorgaben festhalten</li>
+      <li class="fragment">einheitliches Format / Layout</li>
+  </ul>
+</section>
+<section>
+  <h2>Performance</h2>
+  <p>&nbsp;</p>
+  <ul>
+      <li class="fragment">Kosten f&uuml;r .debug(), .info(), ...</li>
+      <li class="fragment">String Konkatentation vermeiden -&gt; varargs</li>
+      <li class="fragment">Level Pr&uuml;fung im eigenen Code selten sinnvoll</li>
+      <code class="hljava fragment" data-trim><pre>
+if(logger.isDebug()) {
+    logger.debug("found customer: {}" ,customer);
+}
+      </pre></code>
+      <li class="fragment">PatternLayout vermeiden von C , F, L und M da Aufwendig in Bestimmung</li>
+  </ul>
+</section>
 <!-- ------ Was bereitet uns Kopfschmerzen?  ------ -->
 <section>
     <section>
