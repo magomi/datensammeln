@@ -158,6 +158,25 @@
     </section>
 </section>
 <section>
+    <pre><code class="hljs" data-trim data-noescape>
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * @author Grunert, Marco <marco@grnrt.org>
+ */
+public class LogDemo {
+    static final Logger logger = LoggerFactory.getLogger(LogDemo.class);
+
+    public static void main(String[] args) {
+        logger.info("application [] started")
+        Alice alice = new Alice(23, "Naive Project Manager");
+        Bob bob = new Bob(42, "Grumpy IT Guy");
+    }
+}
+    </code></pre>
+</section>
+<section>
     <section>
         <h1>Advanced Features</h1>
         <p>&nbsp;</p>
@@ -221,10 +240,61 @@
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Wie werden die Daten weiterverarbeitet?</li>
-            <li class="fragment">Wie gehen wir mit mehreren Datenquellen um</li>
+            <li class="fragment">Wie gehen wir mit mehreren Datenquellen um?</li>
             <li class="fragment">Wie finden wir notwendige Informationen?</li>
-            <li class="fragment">Haben wir die richtigen Informationen erfasst</li>
+            <li class="fragment">Haben wir die richtigen Informationen erfasst?</li>
         </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Wie werden Daten weiterverarbeitet?</h2>
+        <p>&nbsp;</p>
+        <aside class="notes">
+            <ul>
+                <li>zentrale Erfassung in größeren Systemen</li>
+                <li>Analyse der Daten durch unterschiedliche Personenkreise</li>
+                <li>Einbindung in zentrale Nutzerberechtigung</li>
+                <li>...</li>
+            </ul>
+        </aside>
+    </section>
+    <section>
+        <h2>Wie gehen wir mit mehreren Datenquellen um?</h2>
+        <p>&nbsp;</p>
+        <aside class="notes">
+            <ul>
+                <li>Systeme sind üblicherweise verteilt</li>
+                <li>eindeutige Identifier notwendig</li>
+                <li>zentrale Zeitquelle</li>
+                <li>...</li>
+            </ul>
+        </aside>
+    </section>
+    <section>
+        <h2>Wie finden wir notwendige Informationen?</h2>
+        <p>&nbsp;</p>
+        <aside class="notes">
+            <ul>
+                <li>Suche in Datenbeständen notwendig.</li>
+                <li>Identfier müssen über mehrere Datenquellen transportiert werden</li>
+                <li>Arbeit in Textdateien mit regulären Ausdrücken</li>
+                <li>Suche ist nicht performant</li>
+                <li>...</li>
+            </ul>
+        </aside>
+    </section>
+    <section>
+        <h2>Haben wir die richtigen Informationen erfasst?</h2>
+        <p>&nbsp;</p>
+        <aside class="notes">
+            <ul>
+                <li>Suche abhängig von Fragestellung</li>
+                <li>Fehler nicht vorher bekannt</li>
+                <li>Nutzerverhalten nicht vorher bekannt</li>
+                <li>Auswirkungen auf Änderungen müssen nachvollzogen werden</li>
+            </ul>
+        </aside>
     </section>
 </section>
 
@@ -233,19 +303,71 @@
     <h1>Logging weiter gedacht</h1>
     <p>&nbsp;</p>
     <ul>
-        <li>Strukturierung der Daten</li>
-        <li>Zentrale Ablage</li>
-        <li>Aggregation von Daten</li>
-        <li>Performanter Zugriff</li>
+        <li class="fragment">Zentrale Ablage</li>
+        <li class="fragment">Strukturierung der Daten</li>
+        <li class="fragment">Aggregation von Daten</li>
+        <li class="fragment">Performanter Zugriff</li>
+    </ul>
+    <aside>
+        <ul>
+            <li>Zentrale Ablage: <b></b></li>
+            <li>Strukturierung: kategorisieren, vorfiltern, sortieren</li>
+            <li>Aggregation: Zeitstempel, Quellen zusammenfassen</li>
+            <li>Performance: Verteilung, Indexierung</li>
+        </ul>
+    </aside>
+</section>
+<section>
+    <h1>Zentrale Logging-Server</h1>
+    <p>&nbsp;</p>
+    <ul>
+        <li>passender Logging-Appender + Datenbank</li>
+        <li>Eigenbau</li>
+        <li>Splunk</li>
+        <li><b>E</b>lastic Search - <b>K</b>ibana - <b>L</b>ogstack</li>
+        <li>...</li>
     </ul>
 </section>
 <section>
-    <h1>ELK Stack</h1>
-    <p>&nbsp;</p>
-    <p>...</p>
+    <section>
+        <h1>ELK Stack</h1>
+        <p>&nbsp;</p>
+        <img width="800" height="600" data-src="ELK Overview" alt="ELK Stack">
+    </section>
+    <section>
+        <h1>Elastic Search</h1>
+        <p>&nbsp;</p>
+        <p>...</p>
+    </section>
+    <section>
+        <h1>Kibana</h1>
+        <p>&nbsp;</p>
+        <p>...</p>
+    </section>
+    <section>
+        <h1>Logstash</h1>
+        <p>&nbsp;</p>
+        <p>...</p>
+    </section>
 </section>
 
-<!-- ------ ENDE ------- -->
+<!-- ------ Noch Fragen? ------- -->
+<section>
+    <h1>Und nun ihr!</h1>
+    <p>&nbsp;</p>
+    <h4>Bert Radke</h4>
+    <p>(Google Plus) taseroth / bert.radke@t-systems.com</p>
+    <p>&nbsp;</p>
+    <h4>Marco Grunert</h4>
+    <p>(Twitter) @magomi / marco.grunert@t-systems.com</p>
+</section>
+<section>
+    <h1>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h1>
+    <h1>&nbsp;</h1>
+    <h2 class="fragment">Jetzt aber wirklich.</h2>
+</section>
+
+<!-- ------ Ende ------- -->
         <script src="reveal.js/lib/js/head.min.js"></script>
         <script src="reveal.js/js/reveal.js"></script>
         <script>
@@ -255,9 +377,16 @@
                     { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
                 ]
             });
         </script>
+        <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
     </body>
 </html>

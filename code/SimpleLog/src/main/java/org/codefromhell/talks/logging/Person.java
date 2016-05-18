@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * Created by marco on 03/05/16.
  */
 public class Person {
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    static final Logger logger = LoggerFactory.getLogger(Person.class);
 
     private int age;
     private String profession;

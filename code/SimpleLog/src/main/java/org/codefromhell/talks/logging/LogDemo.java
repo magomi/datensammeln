@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * @author Grunert, Marco <marco@grnrt.org>
  */
 public class LogDemo {
-    static Logger logger = LoggerFactory.getLogger(LogDemo.class);
+    static final Logger logger = LoggerFactory.getLogger(LogDemo.class);
 
     public static void main(String[] args) {
         logger.info("application [] started")
