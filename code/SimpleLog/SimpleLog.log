@@ -6,3 +6,8 @@
 2016-05-04 18:46:45 INFO  Alice:15 - [alice] was instantiated
 2016-05-04 18:46:45 INFO  Bob:18 - a [person] was instantiated
 2016-05-04 18:46:45 INFO  Bob:14 - [bob] was instantiated
+2016-05-19 00:53:13 INFO  LogDemo:18 - application [] started - Java HotSpot(TM) 64-Bit Server VM_25.65-b01
+2016-05-19 00:53:13 INFO  Person:18 - a [person] was instantiated - Java HotSpot(TM) 64-Bit Server VM_25.65-b01
+2016-05-19 00:53:13 INFO  Alice:17 - [alice] was instantiated - Java HotSpot(TM) 64-Bit Server VM_25.65-b01
+2016-05-19 00:53:13 INFO  Person:18 - a [person] was instantiated - Java HotSpot(TM) 64-Bit Server VM_25.65-b01
+2016-05-19 00:53:13 INFO  Bob:14 - [bob] was instantiated - Java HotSpot(TM) 64-Bit Server VM_25.65-b01

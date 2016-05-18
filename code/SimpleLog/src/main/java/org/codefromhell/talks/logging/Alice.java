@@ -10,7 +10,7 @@ public class Alice extends Person {
 
     // Logger logger = LoggerFactory.getLogger(Bob.class); -> prone to error (copy'n'paste will never die)
     //                                                     -> but one instance for every object
-    static final Logger logger = LoggerFactory.getLogger(this.getClass());
+    static final Logger logger = LoggerFactory.getLogger(Alice.class);
 
     public Alice(int age, String profession) {
         super(age, profession);

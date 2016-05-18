@@ -129,11 +129,6 @@
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Hierarchie</li>
-            <pre class="fragment"><code data-trim data-noescape>
-"org.apache.commons.io.FileUtils"
-"org.apache.commons.io"
-"org.apache.commons"
-            </code></pre>
             <li class="fragment">immer genau einem Log level zugewiesen</li>
             <li class="fragment">mindestens einem Appender zugewiesen</li>
         </ul>
@@ -150,7 +145,7 @@
             <li class="fragment">File</li>
             <li class="fragment">Database</li>
             <li class="fragment">Socket</li>
-            <li class="fragment">Console</li>
+            <li class="fragment">onsole</li>
             <li class="fragment">JMS</li>
             <li class="fragment">Syslog</li>
             <li class="fragment">Mail</li>
@@ -191,7 +186,6 @@
 </section>
 <section>
     <pre><code class="hljava" data-trim data-noescape>
-package com.tsmms.jug;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -242,12 +236,25 @@ public class LogDemo {
     <section>
         <h2>Mapped Diagnostic Context</h2>
         <p>&nbsp;</p>
-        <p>...</p>
+        <ul>
+            <li class="fragment">Erweiterung um spezielle Informationen</li>
+            <li class="fragment">Zugriff &uuml;ber X-Attribut</li>
+            <li class="fragment">als eigenst&auml;ndiges Objekt in Ausgabe verwendbar</li>
+        </ul>
+    </section>
+    <section>
+        Logging
+        <pre class="fragment"><code class="hljs">MDC.put("java.vm.name", System.getProperty("java.vm.name"));</code></pre>
+        Layout
+        <pre class="fragment"><code class="hljs">log4j.appender.stdout.layout.ConversionPattern=
+    ... %-5p %c{1}:%L - %m - JVM %X{java.vm.version}%n</code></pre>
+        Ausgabe
+        <pre class="fragment"><code class="hljs">... INFO  LogDemo:18 - application started - JVM 25.65-b01</code></pre>
     </section>
 </section>
 <section>
     <section>
-        <h2>Welches Framework?</h2>
+        <h1>Welches Framework?</h1>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">JUL und JCL nicht mehr aktuell und keine Weiterentwicklung.</li>
@@ -383,33 +390,62 @@ public class LogDemo {
     <h1>Zentrale Logging-Server</h1>
     <p>&nbsp;</p>
     <ul>
-        <li>passender Logging-Appender + Datenbank</li>
-        <li>Eigenbau</li>
-        <li>Splunk</li>
-        <li><b>E</b>lastic Search - <b>K</b>ibana - <b>L</b>ogstack</li>
-        <li>...</li>
+        <li class="fragment">passender Logging-Appender + Datenbank</li>
+        <li class="fragment">Eigenbau</li>
+        <li class="fragment">Splunk</li>
+        <li class="fragment"><b>E</b>lastic Search - <b>L</b>ogstack - <b>K</b>ibana</li>
+        <li class="fragment">...</li>
     </ul>
 </section>
 <section>
     <section>
         <h1>ELK Stack</h1>
         <p>&nbsp;</p>
-        <img width="800" height="600" data-src="ELK Overview" alt="ELK Stack">
-    </section>
-    <section>
-        <h1>Elastic Search</h1>
-        <p>&nbsp;</p>
-        <p>...</p>
-    </section>
-    <section>
-        <h1>Kibana</h1>
-        <p>&nbsp;</p>
-        <p>...</p>
+        <img style="border:0;" data-src="http://www.sixtree.com.au/images/posts/elk-topology.png" alt="ELK Stack">
     </section>
     <section>
         <h1>Logstash</h1>
         <p>&nbsp;</p>
-        <p>...</p>
+        <img style="border:0;" data-src="https://www.elastic.co/guide/en/logstash/current/static/images/logstash.png" alt="Logstash">
+    </section>
+    <section>
+        <h1>Logstash</h1>
+        <p>&nbsp;</p>
+        <ul>
+            <li class="fragment">Data Collection Engine</li>
+            <li class="fragment">Datenaggregation</li>
+            <li class="fragment">Verarbeitung verschiedener Quellen</li>
+            <li class="fragment">Normierung</li>
+            <li class="fragment">https://www.elastic.co/guide/en/logstash/current/introduction.html</li>
+        </ul>
+    </section>
+    <section>
+        <h1>Elasticsearch</h1>
+        <p>&nbsp;</p>
+        <ul>
+            <li class="fragment">Speichern</li>
+            <li class="fragment">Suchen</li>
+            <li class="fragment">Analysieren</li>
+            <li class="fragment">https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html</li>
+        </ul>
+        <aside class="notes">
+            ...
+        </aside>
+    </section>
+    <section>
+        <h1>Kibana</h1>
+        <p>&nbsp;</p>
+        <img style="border:0;" height="600" data-src="https://assets.digitalocean.com/articles/logstash/dashboard.png" alt="Logstash">
+    </section>
+    <section>
+        <h1>Kibana</h1>
+        <p>&nbsp;</p>
+        <ul>
+            <li class="fragment">Auswertung</li>
+            <li class="fragment">Visualisierung</li>
+            <li class="fragment">Interaktion mit Elasticsearch</li>
+            <li class="fragment">https://www.elastic.co/guide/en/kibana/current/introduction.html</li>
+        </ul>
     </section>
 </section>
 
