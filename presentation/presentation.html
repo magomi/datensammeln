@@ -1,8 +1,10 @@
 <html>
     <head>
+        <title>Datensammeln ohne Reue</title>
         <link rel="stylesheet" href="reveal.js/css/reveal.css">
         <link rel="stylesheet" href="reveal.js/css/theme/white.css">
-    </head>
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+   </head>
     <body>
         <div class="reveal">
             <div class="slides">
@@ -96,7 +98,7 @@
         <li class="fragment">JUL (java.util.logging)</li>
         <li class="fragment">Apache Java Commons Logging</li>
         <li class="fragment">Log4J (Version 1 und 2)</li>
-        <li class="fragment">LogBack</li>
+        <li class="fragment">LOGBack</li>
     </ul>
 </section>
 <section>
@@ -107,7 +109,7 @@
             <li class="fragment">Log Level</li>
             <li class="fragment">Logger</li>
             <li class="fragment">Appender</li>
-            <li class="fragment">Formatter/Layout</li>
+            <li class="fragment">Layout</li>
             <li class="fragment">Encoder</li>
         </ul>
     </section>
@@ -116,7 +118,7 @@
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">ERROR</li>
-            <li class="fragment">WARNIN</li>
+            <li class="fragment">WARNING</li>
             <li class="fragment">INFO</li>
             <li class="fragment">DEBUG</li>
             <li class="fragment">TRACE</li>
@@ -139,7 +141,7 @@
           <ul>
             <li>root logger immer automatisch vom Framework gesetzt</li>
           </ul>
-        </aside
+        </aside>
     </section>
     <section>
         <h2>Appender, Ausgabeziel</h2>
@@ -155,20 +157,41 @@
             <li class="fragment">SNMP</li>
             <li class="fragment">...</li>
         </ul>
+        <aside class="notes">
+          <p>RollingFileAppender,...</p>
+        </aside>
     </section>
     <section>
-        <h2>Formater, Layout</h2>
+        <h2>Layout</h2>
         <p>&nbsp;</p>
-        <p>...</p>
+        <ul>
+          <li class="fragment">PatternLayout</li>
+          <li class="fragment">JsonLayout</li>
+          <li class="fragment">HtmlLayout</li>
+          <li class="fragment">XmlLayout</li>
+          <li class="fragment">CSV, SyslogLayout, ...</li>
+        </ul>
+        <aside class="notes">
+          <p>Am Beispiel Log4j 2</p>
+          <p>Beschreiben das Format / Layout eines Logevents</p>
+        </aside>
     </section>
     <section>
         <h2>Encoder</h2>
         <p>&nbsp;</p>
-        <p>...</p>
+        <ul>
+          <li class="fragment">Flexibler als Layouts</li>
+          <li class="fragment">k&ouml;nnen an Layouts delegieren / wrappen</li>
+        </ul>
+        <aside class="notes">
+          <p>nur LOGBack</p>
+          <p>wurden mit 0.9.19 eingef&uuml;hrt, da Layouts nur Strings schreiben k&ouml;nnen</p>
+        </aside>
     </section>
 </section>
 <section>
-    <pre><code class="hljs" data-trim data-noescape>
+    <pre><code class="hljava" data-trim data-noescape>
+package com.tsmms.jug;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -196,9 +219,25 @@ public class LogDemo {
         </ul>
     </section>
     <section>
-        <h2>Asynchrone Logger</h2>
+        <h2>Asynchrone Logger / Appender</h2>
         <p>&nbsp;</p>
-        <p>...</p>
+        <ul>
+            <li class="fragment">Entkopplung Sender und Empf&auml;nger</li>
+            <li class="fragment">Log4j 1 und LOGBack: DQueue</li>
+            <li class="fragment">Log4j 2 LMAX Disruptors</li>
+        </ul>
+        <aside class="notes">
+          <p>Problem in stark Multi-Threaded Apps: Threads blocken alle am Appender</p>
+          <p>LOGBack verwirft &lt; WARN wenn Queue zu 80% voll</p>
+          <p>Studie: DQueues ineffizient</p>
+          <p>N&auml;chste Seite: Bild</p>
+        </aside>
+    </section>
+    <section>
+      <img style="border:0;" data-src="images/async-vs-sync-throughput.png" alt="Log4j 2 throughput">
+    </section>
+    <section>
+      <img style="border:0;" data-src="images/async-throughput-comparison.png" alt="Log4j 2 throughput">
     </section>
     <section>
         <h2>Mapped Diagnostic Context</h2>
@@ -213,33 +252,46 @@ public class LogDemo {
         <ul>
             <li class="fragment">JUL und JCL nicht mehr aktuell und keine Weiterentwicklung.</li>
             <li class="fragment">Vorteil JUL: keine zus&auml;tzliche Abh&auml;ngigkeiten.</li>
-            <li class="fragment">Entscheidung zwischen Log4J und SLF4J/Logback.</li>
-            <li class="fragment">Logack (ShiftingAppender): separate Appender je nach Runtime Attribute </li>
+            <li class="fragment">Entscheidung zwischen SLF4J/Log4j 2 und SLF4J/LOGback.</li>
         </ul>
         <aside class="notes">
             <ul>
-                <li>research warum von JUL and JUL abgeraten wird_
-                <li>Argumente von http://logback.qos.ch/reasonsToSwitch.html (auszugsweise) übernehmen_
-                <li>SLF4J: config beispiel
-                <li>ShiftingAppender: Appender per User _z.B. per user_</li>
+                <li>SLF4J: config beispiel</li>
             </ul>
         </aside>
     </section>
     <section>
-        <h1>Lessons Learned/Best Practice</h1>
+        <h2>Lessons Learned/Best Practice</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Verwendung der SLF4J API im eigenen Code.</li>
             <li class="fragment">Loggingframework wird zur Laufzeit durch Classpath bestimmt.</li>
-            <li class="fragment">Fremdbibliotheken haben häufig feste Abhängigkeit zu bestimmmten Framework.</li>
+            <li class="fragment">Fremdbibliotheken haben h&auml;ufig feste Abh&auml;ngigkeit zu bestimmmten Framework.</li>
             <li class="fragment">Auswahl per Build-Tool.</li>
             <li class="fragment">Ersetzen von JUL oder JCL durch SLF4J - Stubbs.</li>
         </ul>
         <aside class="notes">
-            <ul>
-                <li class="fragment">Noch ein paar praktische Beispiele?</li>
-            </ul>
+                <p>Beispiel Maven next</p>
         </aside>
+    </section>
+    <section>
+        <pre><code class="hlxml" data-trim >
+          <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+              </exclusion>
+            </exclusions>
+          </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+          </dependency>
+        </code></pre>
     </section>
 </section>
 
