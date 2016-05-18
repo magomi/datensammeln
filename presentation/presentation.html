@@ -127,9 +127,19 @@
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Hierarchie</li>
+            <pre class="fragment"><code data-trim data-noescape>
+"org.apache.commons.io.FileUtils"
+"org.apache.commons.io"
+"org.apache.commons"
+            </code></pre>
             <li class="fragment">immer genau einem Log level zugewiesen</li>
             <li class="fragment">mindestens einem Appender zugewiesen</li>
         </ul>
+        <aside class="notes">
+          <ul>
+            <li>root logger immer automatisch vom Framework gesetzt</li>
+          </ul>
+        </aside
     </section>
     <section>
         <h2>Appender, Ausgabeziel</h2>
@@ -138,7 +148,7 @@
             <li class="fragment">File</li>
             <li class="fragment">Database</li>
             <li class="fragment">Socket</li>
-            <li class="fragment">onsole</li>
+            <li class="fragment">Console</li>
             <li class="fragment">JMS</li>
             <li class="fragment">Syslog</li>
             <li class="fragment">Mail</li>
@@ -198,20 +208,20 @@ public class LogDemo {
 </section>
 <section>
     <section>
-        <h1>Welches Framework?</h1>
+        <h2>Welches Framework?</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">JUL und JCL nicht mehr aktuell und keine Weiterentwicklung.</li>
-            <li class="fragment">Vorteil JUL: keine zusätzliche Abhängigkeiten.</li>
+            <li class="fragment">Vorteil JUL: keine zus&auml;tzliche Abh&auml;ngigkeiten.</li>
             <li class="fragment">Entscheidung zwischen Log4J und SLF4J/Logback.</li>
             <li class="fragment">Logack (ShiftingAppender): separate Appender je nach Runtime Attribute </li>
         </ul>
         <aside class="notes">
             <ul>
-                <li class="fragment">research warum von JUL and JUL abgeraten wird_
-                <li class="fragment">Argumente von http://logback.qos.ch/reasonsToSwitch.html (auszugsweise) übernehmen_
-                <li class="fragment">SLF4J: config beispiel
-                <li class="fragment">ShiftingAppender: Appender per User _z.B. per user_</li>
+                <li>research warum von JUL and JUL abgeraten wird_
+                <li>Argumente von http://logback.qos.ch/reasonsToSwitch.html (auszugsweise) übernehmen_
+                <li>SLF4J: config beispiel
+                <li>ShiftingAppender: Appender per User _z.B. per user_</li>
             </ul>
         </aside>
     </section>
