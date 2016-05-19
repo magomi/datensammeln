@@ -16,7 +16,7 @@
             background-attachment: fixed;
             background-position: right top;
         }
-        
+
         .reveal pre {
           width: 100%;
         }
@@ -146,6 +146,11 @@
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Hierarchie</li>
+            <pre class="fragment"><code data-trim data-noescape>
+"org.apache.commons.io.FileUtils"
+"org.apache.commons.io"
+"org.apache.commons"
+            </code></pre>
             <li class="fragment">immer genau einem Log level zugewiesen</li>
             <li class="fragment">mindestens einem Appender zugewiesen</li>
         </ul>
@@ -203,6 +208,7 @@
 </section>
 <section>
     <pre><code class="hljava" data-trim data-noescape>
+package com.tsmms.jug;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -523,7 +529,9 @@ if(logger.isDebug()) {
                     { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-                ]
+                ],
+                // Push each slide change to the browser history
+                history: true,
             });
         </script>
         <script>
