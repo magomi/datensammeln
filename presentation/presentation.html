@@ -58,7 +58,7 @@
 
 <!-- ------ Titel ------- -->
 <section>
-    <h1>Modernes Logging</h1>
+    <h2>Modernes Logging</h2>
     <h2>Datensammeln ohne Reue</h2>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -72,8 +72,8 @@
    <pre><code class="hljava" data-trim data-noescape>System.out.println("Customer " + 637208 + " not found");</code></pre>
 </section>
 <section>
-    <h1>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h1>
-    <h1>&nbsp;</h1>
+    <h2>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h2>
+    <h2>&nbsp;</h2>
     <h2>Fragen? Anmerkungen?</h2>
 </section>
 <section>
@@ -90,7 +90,7 @@
     </aside>
 </section>
 <section>
-    <h1>Warum sammeln wir Daten?</h1>
+    <h2>Warum sammeln wir Daten?</h2>
     <p>&nbsp</p>
     <ul>
        <li class="fragment">Zustand von Anwendungen &uuml;berwachen</li>
@@ -108,7 +108,7 @@
     </aside>
 </section>
 <section>
-    <h1>F&uuml;r wen sammeln wir Daten?</h1>
+    <h2>F&uuml;r wen sammeln wir Daten?</h2>
     <p>&nbsp</p>
     <ul>
         <li class="fragment">Entwickler</li>
@@ -124,11 +124,11 @@
     </aside>
 </section>
 <section>
-    <h1>Was wollen wir eigentlich?</h1>
+    <h2>Was wollen wir eigentlich?</h2>
     <p>&nbsp;</p>
     <ul>
         <li class="fragment">Trennung von Content und Pr&auml;sentation</li>
-        <li class="fragment">Steuerung der Konfiguration</li>
+        <li class="fragment">Steuerung durch Konfiguration</li>
         <ul>
             <li class="fragment">Was wird geloggt?</li>
             <li class="fragment">Wohin wird geloggt?</li>
@@ -139,7 +139,7 @@
 
 <!-- ------ aktueller Stand  ------ -->
 <section>
-    <h1>Was verwenden wir heutzutage</h1>
+    <h2>Was verwenden wir heutzutage</h2>
     <p>&nbsp;</p>
     <ul>
         <li class="fragment">JUL (java.util.logging)</li>
@@ -147,10 +147,14 @@
         <li class="fragment">Log4J (Version 1 und 2)</li>
         <li class="fragment">LOGBack</li>
     </ul>
+    <aside class="notes">
+      <p>sturm und drang vorbei</p>
+      <p>Konsolidierung nach Hype abgeschlossen</p>
+    </aside>
 </section>
 <section>
     <section>
-        <h1>Grundlegende Konzepte</h1>
+        <h2>Grundlegende Konzepte</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Log Level</li>
@@ -292,7 +296,7 @@ public class LogDemo {
 </section>
 <section>
     <section>
-        <h1>Advanced Features</h1>
+        <h2>Advanced Features</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Asynchrone Logger</li>
@@ -328,6 +332,9 @@ public class LogDemo {
             <li class="fragment">Zugriff &uuml;ber X-Attribut</li>
             <li class="fragment">als eigenst&auml;ndiges Objekt in Ausgabe verwendbar</li>
         </ul>
+        <aside class="notes">
+          <p>Thread-local value</p>
+        </aside>
     </section>
     <section>
         Logging
@@ -341,7 +348,7 @@ public class LogDemo {
 </section>
 <section>
     <section>
-        <h1>Welches Framework?</h1>
+        <h2>Welches Framework?</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">JUL und JCL nicht mehr aktuell und keine Weiterentwicklung.</li>
@@ -393,7 +400,7 @@ public class LogDemo {
   <p>&nbsp;</p>
   <ul>
       <li class="fragment">Was loggen wir?</li>
-      <li class="fragment">Auf welchem Level</li>
+      <li class="fragment">Auf welchem Level?</li>
       <li class="fragment">Abstimmung mit Betrieb, NFR?</li>
       <li class="fragment">Systemgrenzen</li>
       <li class="fragment">Aufrufzeiten</li>
@@ -414,13 +421,13 @@ if(logger.isDebug()) {
     logger.debug("found customer: {}" ,customer);
 }
       </pre></code>
-      <li class="fragment">PatternLayout vermeiden von C , F, L und M da Aufwendig in Bestimmung</li>
+      <li class="fragment">PatternLayout vermeiden von %C , %F, %L und %M da aufwendig in Bestimmung</li>
   </ul>
 </section>
 <!-- ------ Was bereitet uns Kopfschmerzen?  ------ -->
 <section>
     <section>
-        <h1>Reicht das?</h1>
+        <h2>Reicht das?</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Wie werden die Daten weiterverarbeitet?</li>
@@ -448,7 +455,7 @@ if(logger.isDebug()) {
         <p>&nbsp;</p>
         <aside class="notes">
             <ul>
-                <li>Systeme sind üblicherweise verteilt</li>
+                <li>Systeme sind &uuml;blicherweise verteilt</li>
                 <li>eindeutige Identifier notwendig</li>
                 <li>zentrale Zeitquelle</li>
                 <li>...</li>
@@ -460,9 +467,9 @@ if(logger.isDebug()) {
         <p>&nbsp;</p>
         <aside class="notes">
             <ul>
-                <li>Suche in Datenbeständen notwendig.</li>
-                <li>Identfier müssen über mehrere Datenquellen transportiert werden</li>
-                <li>Arbeit in Textdateien mit regulären Ausdrücken</li>
+                <li>Suche in Datenbest&auml;nden notwendig.</li>
+                <li>Identfier m&uuml;ssen &uuml;ber mehrere Datenquellen transportiert werden</li>
+                <li>Arbeit in Textdateien mit regul&auml;ren Ausdr&uuml;cken</li>
                 <li>Suche ist nicht performant</li>
                 <li>...</li>
             </ul>
@@ -473,10 +480,10 @@ if(logger.isDebug()) {
         <p>&nbsp;</p>
         <aside class="notes">
             <ul>
-                <li>Suche abhängig von Fragestellung</li>
+                <li>Suche abh&auml;ngig von Fragestellung</li>
                 <li>Fehler nicht vorher bekannt</li>
                 <li>Nutzerverhalten nicht vorher bekannt</li>
-                <li>Auswirkungen auf Änderungen müssen nachvollzogen werden</li>
+                <li>Auswirkungen auf &Auml;nderungen m&uuml;ssen nachvollzogen werden</li>
             </ul>
         </aside>
     </section>
@@ -484,7 +491,7 @@ if(logger.isDebug()) {
 
 <!-- ------ Logging weitergedacht  ------ -->
 <section>
-    <h1>Logging weiter gedacht</h1>
+    <h2>Logging weiter gedacht</h2>
     <p>&nbsp;</p>
     <ul>
         <li class="fragment">Zentraler Datastore</li>
@@ -502,7 +509,7 @@ if(logger.isDebug()) {
     </aside>
 </section>
 <section>
-    <h1>Zentrale Logging-Server</h1>
+    <h2>Zentrale Logging-Server</h2>
     <p>&nbsp;</p>
     <ul>
         <li class="fragment">passender Logging-Appender + Datenbank</li>
@@ -514,17 +521,17 @@ if(logger.isDebug()) {
 </section>
 <section>
     <section>
-        <h1>ELK Stack</h1>
+        <h2>ELK Stack</h2>
         <p>&nbsp;</p>
         <img style="border:0;" data-src="http://www.sixtree.com.au/images/posts/elk-topology.png" alt="ELK Stack">
     </section>
     <section>
-        <h1>Logstash</h1>
+        <h2>Logstash</h2>
         <p>&nbsp;</p>
         <img style="border:0;" data-src="https://www.elastic.co/guide/en/logstash/current/static/images/logstash.png" alt="Logstash">
     </section>
     <section>
-        <h1>Logstash</h1>
+        <h2>Logstash</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Data Collection Engine</li>
@@ -535,7 +542,7 @@ if(logger.isDebug()) {
         </ul>
     </section>
     <section>
-        <h1>Elasticsearch</h1>
+        <h2>Elasticsearch</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Speichern</li>
@@ -548,12 +555,11 @@ if(logger.isDebug()) {
         </aside>
     </section>
     <section>
-        <h1>Kibana</h1>
-        <p>&nbsp;</p>
-        <img style="border:0;" height="600" data-src="https://assets.digitalocean.com/articles/logstash/dashboard.png" alt="Logstash">
+        <h2>Kibana</h2>
+        <img style="border:0;" height="600" data-src="images/kibana.png" alt="Logstash">
     </section>
     <section>
-        <h1>Kibana</h1>
+        <h2>Kibana</h2>
         <p>&nbsp;</p>
         <ul>
             <li class="fragment">Auswertung</li>
@@ -566,17 +572,17 @@ if(logger.isDebug()) {
 
 <!-- ------ Noch Fragen? ------- -->
 <section>
-    <h1>Und nun ihr!</h1>
+    <h2>Und nun ihr!</h2>
     <p>&nbsp;</p>
     <h4>Bert Radke</h4>
-    <p>(Google Plus) taseroth / bert.radke@t-systems.com</p>
+    <p>(Google Plus) Bert Radke / bert.radke@t-systems.com</p>
     <p>&nbsp;</p>
     <h4>Marco Grunert</h4>
     <p>(Twitter) @magomi / marco.grunert@t-systems.com</p>
 </section>
 <section>
-    <h1>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h1>
-    <h1>&nbsp;</h1>
+    <h2>Vielen Dank f&uuml;r eure Aufmerksamkeit!</h2>
+    <h2>&nbsp;</h2>
     <h2 class="fragment">Jetzt aber wirklich.</h2>
 </section>
 
